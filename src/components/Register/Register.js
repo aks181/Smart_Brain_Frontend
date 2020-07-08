@@ -4,32 +4,32 @@ class Register extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			registerEmail: '',
-			registerPassword: '',
-			registername: ''
+			email: '',
+			password: '',
+			name: ''
 		}
 	}
 	onEmailChange = (event) => {
-		this.setState({registerEmail: event.target.value})
+		this.setState({email: event.target.value})
 	}
 
 	onPasswordChange = (event) => {
-		this.setState({registerPassword: event.target.value})
+		this.setState({password: event.target.value})
 	}	
 
 	onNameChange = (event) => {
-		this.setState({registerName: event.target.value})
+		this.setState({name: event.target.value})
 	}
 
-	onSubmitSignIn = (event) => {
+	onSubmitSignIn = () => {
 		// event.preventDefault();
 		fetch('http://localhost:3001/register', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
-				email: this.state.registerEmail,
-				password: this.state.registerPassword,
-				name: this.state.registerName
+				email: this.state.email,
+				password: this.state.password,
+				name: this.state.name
 			})
 		})
 		.then(response => response.json())
