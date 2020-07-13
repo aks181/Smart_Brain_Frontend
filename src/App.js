@@ -82,7 +82,7 @@ class App extends Component {
 
   onPictureSubmit = () => {
     this.setState({imageUrl: this.state.input})
-      fetch('http://localhost:3001/imageurl', {
+      fetch('https://limitless-wave-48781.herokuapp.com/', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
